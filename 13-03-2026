@@ -1,0 +1,30 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\ranja> docker stop my-container
+my-container
+PS C:\Users\ranja> docker rm my-container
+my-container
+PS C:\Users\ranja> docker rm stoic_diffie
+stoic_diffie
+PS C:\Users\ranja> docker run -d eloquent_jones
+Unable to find image 'eloquent_jones:latest' locally
+docker: Error response from daemon: pull access denied for eloquent_jones, repository does not exist or may require 'docker login'
+
+Run 'docker run --help' for more information
+PS C:\Users\ranja> docker run -d httpd         
+45455eb20766fe41c9047fa9f113ec868a6e5e3469854ffdbe59755845c56bb0
+PS C:\Users\ranja> docker run -it ubuntu
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+01d7766a2e4a: Pull complete
+fd8cda969ed2: Download complete
+Digest: sha256:d1e2e92c075e5ca139d51a140fff46f84315c0fdce203eab2807c7e495eff4f9
+Status: Downloaded newer image for ubuntu:latest
+root@31ba90daf513:/# 
+root@31ba90daf513:/# whoami
+root
+root@31ba90daf513:/# ^C
+root@31ba90daf513:/#
