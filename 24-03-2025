@@ -1,0 +1,89 @@
+A Docker registry is basically a storage + distribution system for container images. If you’re using Docker seriously, this is not optional—you either use someone else’s registry or run your own.
+
+What it actually is
+
+Think of it like GitHub, but for container images instead of code.
+
+You push images to a registry
+Others (or your servers) pull images from it
+It stores different versions (tags) of images
+The main one everyone uses
+Docker Hub
+Default public registry
+Easy, but:
+Rate limits (especially for anonymous pulls)
+Not ideal for private enterprise use unless you pay
+Other popular registries (and why they exist)
+Cloud-managed registries
+Amazon Elastic Container Registry (ECR)
+Google Container Registry (GCR)
+Azure Container Registry (ACR)
+
+These exist because:
+
+Better integration with their cloud platforms
+Built-in IAM/security
+Faster pulls inside their ecosystem
+Self-hosted / private registries
+Docker Registry
+Barebones, minimal features
+Harbor
+Actually production-grade:
+RBAC
+Vulnerability scanning
+Replication
+
+If you're serious about infra, Harbor > plain Docker Registry.
+
+Core concepts you need to understand
+1. Image naming
+<registry>/<namespace>/<image>:<tag>
+
+Example:
+
+docker.io/library/nginx:latest
+2. Push / Pull flow
+
+Pull
+
+docker pull nginx
+
+Push
+
+docker tag myapp username/myapp:v1
+docker push username/myapp:v1
+3. Public vs Private images
+Public → anyone can pull
+Private → requires authentication
+When you actually need your own registry
+
+Be honest here—most beginners don’t.
+
+You need one if:
+
+You’re deploying apps in production
+You want private images
+You care about security/scanning
+You want faster internal pulls
+Common mistake (don’t do this)
+
+People think:
+
+“I’ll just build images locally and copy them to servers”
+
+That’s amateur hour.
+
+Proper flow:
+
+Build image
+Push to registry
+Deploy from registry
+Bottom line
+A Docker registry is infrastructure, not a feature
+If you skip it, your deployment pipeline is broken
+Start with Docker Hub, move to ECR/GCR/ACR or Harbor when scaling
+
+If you want, I can break down:
+
+How to set up your own registry step-by-step
+Or how registries fit into CI/CD (where most people screw things up)
